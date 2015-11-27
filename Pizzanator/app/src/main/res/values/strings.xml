@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Pizzanator</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="pizza">Find Pizza</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="mainText">FIND PIZZA</string>
+    <string name="mainText2">Any time anywhere</string>
 </resources>
