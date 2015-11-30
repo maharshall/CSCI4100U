@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -16,14 +17,15 @@ public class VideoActivity extends Activity {
         setContentView(R.layout.activity_video);
 
         final VideoView videoView = (VideoView) findViewById(R.id.videoView);
-        /*
+
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.potato);
         videoView.setVideoURI(uri);
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
+        videoView.setZOrderMediaOverlay(true);
 
-        videoView.start();*/
+        videoView.start();
     }
 
     @Override
@@ -46,5 +48,9 @@ public class VideoActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void back(View V) {
+        finish();
     }
 }
