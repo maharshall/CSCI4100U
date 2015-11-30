@@ -6,12 +6,14 @@ package com.example.katarn.pizzanator;
 public class PizzaStore {
     private long id;
     private String storeName;
+    private String address;
     private String website;
-    private int phoneNumber;
+    private String phoneNumber;
 
-    public PizzaStore(String storeName, String website, int phoneNumber) {
+    public PizzaStore(String storeName, String address, String website, String phoneNumber) {
         this.id = -1;
         this.storeName = storeName;
+        this.address = address;
         this.website = website;
         this.phoneNumber = phoneNumber;
     }
@@ -32,6 +34,10 @@ public class PizzaStore {
         this.storeName = storeName;
     }
 
+    public void setAddress(String address) {this.address = address; }
+
+    public java.lang.String getAddress() {return address; }
+
     public String getWebsite() {
         return website;
     }
@@ -40,11 +46,11 @@ public class PizzaStore {
         this.website = website;
     }
 
-    public double getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

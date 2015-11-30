@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class PizzaDB extends SQLiteOpenHelper{
     public static final String CREATE_STATEMENT = "CREATE TABLE " + TABLE_NAME + "(" +
             "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
             " storeName TEXT NOT NULL, " +
+            " address TEXT NOT NULL, " +
             " website TEXT NOT NULL, " +
             " phoneNumber REAL" +
             ")";
@@ -41,14 +43,15 @@ public class PizzaDB extends SQLiteOpenHelper{
     }
 
     //create an object of the PizzaStore class adds it to the database
-    public PizzaStore addProduct(String storeName, String website, int phoneNumber) {
-        PizzaStore pizza = new PizzaStore(storeName, website, phoneNumber);
+    public PizzaStore addProduct(String storeName, String address, String website, String phoneNumber) {
+        PizzaStore pizza = new PizzaStore(storeName, address, website, phoneNumber);
 
         // obtain a database connection
         SQLiteDatabase database = this.getWritableDatabase();
         //add values to database
         ContentValues values = new ContentValues();
         values.put("storeName", pizza.getStoreName());
+        values.put("address", pizza.getAddress());
         values.put("website", pizza.getWebsite());
         values.put("phoneNumber", pizza.getPhoneNumber());
         System.out.println(values);
@@ -64,20 +67,31 @@ public class PizzaDB extends SQLiteOpenHelper{
         ArrayList<PizzaStore> products = new ArrayList<PizzaStore>();
         SQLiteDatabase database = this.getWritableDatabase();
 
-        String[] columns = new String[] { "_id", "storeName", "website", "phoneNumber"};
+        String[] columns = new String[] { "_id", "storeName", "address", "website", "phoneNumber"};
         Cursor cursor = database.query(TABLE_NAME, columns, "", new String[]{}, "", "", "");
         cursor.moveToFirst();
         do {
             long id = Long.parseLong(cursor.getString(0));
             String storeName = cursor.getString(1);
-            String website = cursor.getString(2);
-            String price = cursor.getString(3);
-            PizzaStore pizza = new PizzaStore(storeName, website, Integer.parseInt(price));
+            String address = cursor.getString(2);
+            String website = cursor.getString(3);
+            String number = cursor.getString(4);
+            PizzaStore pizza = new PizzaStore(storeName, address, website, number);
             pizza.setId(id);
             products.add(pizza);
             cursor.moveToNext();
         } while (!cursor.isAfterLast());
 
         return products;
+    }
+
+    public void deleteAllProducts() {
+        // obtain a database connection
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        // delete the contact
+        int numRowsAffected = database.delete(TABLE_NAME, "", new String[] {});
+
+        Log.i("DatabaseAccess", "deleteAllProducts():  numRowsAffected: " + numRowsAffected);
     }
 }

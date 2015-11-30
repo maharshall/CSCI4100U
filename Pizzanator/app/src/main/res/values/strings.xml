@@ -13,4 +13,10 @@
     <string name="title_activity_list">ListActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_pizzaplace_list">Pizza Places</string>
+    <string name="title_pizzaplace_detail">Pizza Place Detail</string>
+    <string name="title_activity_pizza_list">PizzaList</string>
+    <string name="title_activity_pizza_detail">PizzaDetail</string>
+    <string name="map">View On Map >></string>
+    <string name="title_activity_maps">Map</string>
 </resources>
