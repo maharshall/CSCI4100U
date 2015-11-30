@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by katarn on 30/11/15.
+ * Alex Marshall
  */
 public class PizzaAdapter extends BaseAdapter {
     private Context context;

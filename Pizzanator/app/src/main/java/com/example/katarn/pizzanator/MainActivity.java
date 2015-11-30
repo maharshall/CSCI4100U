@@ -1,8 +1,12 @@
 package com.example.katarn.pizzanator;
 
+/**
+ * Dylan Crawford
+ * Alex Marshall
+ */
+
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +19,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //remove saved values from database
         PizzaDB pdb = new PizzaDB(this);
         pdb.deleteAllProducts();
+        //add database entries
         pdb.addProduct("Pizza Pizza", "300 Taunton Rd E, Oshawa, ON L1G 7T4", "pizzapizza.ca", "905-427-1111");
         pdb.addProduct("Pizza Nova", "1288 Ritson Rd N, Oshawa, ON L1G 6Z6", "pizzanova.com", "905-310-3300");
         pdb.addProduct("Pizza Hut", "1206 Simcoe St N, Oshawa, ON L1G 4X2", "pizzahut.ca", "905-571-1300");
@@ -45,11 +51,13 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    //on click for find pizza button
     public void findPizza(View V) {
         Intent intent = new Intent(this, PizzaList.class);
         startActivity(intent);
     }
 
+    //on click for tutorial button
     public void tutorial(View V) {
         Intent intent = new Intent(this,VideoActivity.class);
         startActivity(intent);

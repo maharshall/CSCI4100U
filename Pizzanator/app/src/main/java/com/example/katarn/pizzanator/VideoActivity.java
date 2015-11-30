@@ -1,5 +1,9 @@
 package com.example.katarn.pizzanator;
 
+/**
+ * Dylan Crawford
+ */
+
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,10 +20,13 @@ public class VideoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
 
+        //Retrieve video view
         final VideoView videoView = (VideoView) findViewById(R.id.videoView);
 
+        //find video in the raw folder
         Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.potato);
         videoView.setVideoURI(uri);
+        //add media controls
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
@@ -50,6 +57,7 @@ public class VideoActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    //on click for the back button
     public void back(View V) {
         finish();
     }

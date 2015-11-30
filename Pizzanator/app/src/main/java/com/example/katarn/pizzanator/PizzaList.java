@@ -1,13 +1,15 @@
 package com.example.katarn.pizzanator;
 
+/**
+ * Alex Marshall
+ */
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -49,6 +51,7 @@ public class PizzaList extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    //on click for list view entry, opens the detailed view of entry
     public void viewDetail(View v) {
         Intent detail = new Intent(this, PizzaDetail.class);
 
@@ -58,6 +61,7 @@ public class PizzaList extends Activity {
         TextView store = (TextView) findViewById(R.id.storeName);
         String name = store.getText().toString();
 
+        //store the details in the intent
         for (int i = 0; i < data.size(); i++) {
             if(name.equals(data.get(i).getStoreName())) {
                 detail.putExtra("store", data.get(i).getStoreName());

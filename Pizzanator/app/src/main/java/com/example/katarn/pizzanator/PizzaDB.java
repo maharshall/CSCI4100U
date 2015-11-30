@@ -10,7 +10,8 @@ import android.util.Log;
 import java.util.ArrayList;
 
 /**
- * Created by hozukimaru on 27/11/15.
+ * Dylan Crawford
+ * Alex Marshall
  */
 public class PizzaDB extends SQLiteOpenHelper{
     //database create and drop statements
@@ -85,13 +86,11 @@ public class PizzaDB extends SQLiteOpenHelper{
         return products;
     }
 
+    //delete all entries from the database
     public void deleteAllProducts() {
         // obtain a database connection
         SQLiteDatabase database = this.getWritableDatabase();
 
-        // delete the contact
         int numRowsAffected = database.delete(TABLE_NAME, "", new String[] {});
-
-        Log.i("DatabaseAccess", "deleteAllProducts():  numRowsAffected: " + numRowsAffected);
     }
 }

@@ -1,8 +1,12 @@
 package com.example.katarn.pizzanator;
 
 /**
- * Created by hozukimaru on 27/11/15.
+ * Dylan Crawford
+ * Alex Marshall
  */
+
+//Class to store an object of type Pizza Store to be added to the database
+//Stores id, store name, address, website and phone number
 public class PizzaStore {
     private long id;
     private String storeName;
