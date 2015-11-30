@@ -68,4 +68,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:onClick="showMap"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:id="@+id/back"
+        android:layout_below="@+id/map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp" />
 </RelativeLayout>

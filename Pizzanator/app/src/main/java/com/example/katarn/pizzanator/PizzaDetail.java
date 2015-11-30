@@ -129,4 +129,9 @@ public class PizzaDetail extends Activity {
         intent.setData(Uri.parse(uri));
         startActivity(intent);
     }
+
+    //on click back button
+    public void back(View V) {
+        finish();
+    }
 }

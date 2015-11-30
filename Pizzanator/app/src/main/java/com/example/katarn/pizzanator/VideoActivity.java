@@ -24,7 +24,7 @@ public class VideoActivity extends Activity {
         final VideoView videoView = (VideoView) findViewById(R.id.videoView);
 
         //find video in the raw folder
-        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.potato);
+        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.montage);
         videoView.setVideoURI(uri);
         //add media controls
         MediaController mediaController = new MediaController(this);
