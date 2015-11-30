@@ -34,6 +34,7 @@ public class PizzaDetail extends Activity {
         setContentView(R.layout.activity_pizza_detail);
 
         Intent intent = getIntent();
+        //get info from PizzaList
         storeName = intent.getStringExtra("store");
         addr = intent.getStringExtra("addr");
         web = intent.getStringExtra("web");

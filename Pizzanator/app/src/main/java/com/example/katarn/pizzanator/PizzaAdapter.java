@@ -16,6 +16,7 @@ public class PizzaAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<PizzaStore> data;
 
+    //constructor
     public PizzaAdapter(Context context, ArrayList<PizzaStore> data) {
         this.data = data;
         this.context = context;

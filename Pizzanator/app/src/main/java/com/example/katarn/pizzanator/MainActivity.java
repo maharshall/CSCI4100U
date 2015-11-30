@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         pdb.addProduct("Pizza Pizza", "300 Taunton Rd E, Oshawa, ON L1G 7T4", "pizzapizza.ca", "905-427-1111");
         pdb.addProduct("Pizza Nova", "1288 Ritson Rd N, Oshawa, ON L1G 6Z6", "pizzanova.com", "905-310-3300");
         pdb.addProduct("Pizza Hut", "1206 Simcoe St N, Oshawa, ON L1G 4X2", "pizzahut.ca", "905-571-1300");
-        pdb.addProduct("Domino's Pizza", "1383 Wilson Rd N, Oshawa, ON L1K 2Z5", "pizza.dominos.ca", "905-434-2777");
+        pdb.addProduct("Domino's Pizza", "1383 Wilson Rd N, Oshawa, ON L1K 2Z5", "dominos.ca", "905-434-2777");
     }
 
     @Override

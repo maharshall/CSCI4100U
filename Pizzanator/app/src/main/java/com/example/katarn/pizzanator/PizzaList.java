@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,8 +27,30 @@ public class PizzaList extends Activity {
         ArrayList<PizzaStore> data = pdb.getAllProducts();
 
         final ListView lv = (ListView) findViewById(R.id.listView);
+        // link database to list view
         lv.setAdapter(new PizzaAdapter(this, data));
+
+        // set click listener
+        lv.setOnItemClickListener(onListClick);
     }
+
+    // on click for PizzaDetail map button
+    private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent detail = new Intent(PizzaList.this, PizzaDetail.class);
+
+            PizzaDB pdb = new PizzaDB(PizzaList.this);
+            ArrayList<PizzaStore> data = pdb.getAllProducts();
+
+            detail.putExtra("store", data.get(position).getStoreName());
+            detail.putExtra("addr", data.get(position).getAddress());
+            detail.putExtra("web", data.get(position).getWebsite());
+            detail.putExtra("num", data.get(position).getPhoneNumber());
+
+            startActivity(detail);
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,29 +72,5 @@ public class PizzaList extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    //on click for list view entry, opens the detailed view of entry
-    public void viewDetail(View v) {
-        Intent detail = new Intent(this, PizzaDetail.class);
-
-        PizzaDB pdb = new PizzaDB(this);
-        ArrayList<PizzaStore> data = pdb.getAllProducts();
-
-        TextView store = (TextView) findViewById(R.id.storeName);
-        String name = store.getText().toString();
-
-        //store the details in the intent
-        for (int i = 0; i < data.size(); i++) {
-            if(name.equals(data.get(i).getStoreName())) {
-                detail.putExtra("store", data.get(i).getStoreName());
-                detail.putExtra("addr", data.get(i).getAddress());
-                detail.putExtra("web", data.get(i).getWebsite());
-                detail.putExtra("num", data.get(i).getPhoneNumber());
-                break;
-            }
-        }
-
-        startActivity(detail);
     }
 }

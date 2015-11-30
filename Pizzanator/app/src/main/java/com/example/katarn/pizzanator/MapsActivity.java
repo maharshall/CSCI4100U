@@ -24,6 +24,7 @@ public class MapsActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        //get latitude, longitude, and address from PizzaDetail
         Intent callingIntent = getIntent();
         latitude = callingIntent.getDoubleExtra("latitude", 0.0);
         longitude = callingIntent.getDoubleExtra("longitude", 0.0);
@@ -48,6 +49,7 @@ public class MapsActivity extends FragmentActivity {
     }
 
     private void showMapLocation() {
+        //Add location on map with Address text
         LatLng position = new LatLng(latitude, longitude);
         map.addMarker(new MarkerOptions().position(position).title(address));
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 14));
